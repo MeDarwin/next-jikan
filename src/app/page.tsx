@@ -1,113 +1,85 @@
-import Image from 'next/image'
+import Brand from "@/components/brand";
+import Image from "next/image";
 
-export default function Home() {
+const Page = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <div>
+      <div className="group relative flex transition-all delay-200 duration-300 outline hover:outline-secondary outline-primary outline-offset-8 shadow-primary shadow-md hover:shadow-2xl hover:shadow-secondary py-4 px-2 rounded-lg mb-16">
+        <span className="after:block group-hover:after:bg-secondary after:w-2 after:h-full after:absolute after:bottom-0 after:-skew-x-12 after:left-32 after:shadow-lg after:shadow-secondary after:bg-primary"></span>
+        <Brand />
+        {/* //TODO: On hover each sentence staggers */}
+        <h1 className="group-hover:text-secondary transition-colors delay-500 duration-100 ms-12 text-3xl italic font-semibold text-primary">
+          Watch anime like never before.
+        </h1>
+        {/* //TODO: Image below the quote */}
+        <Image src="https://picsum.photos/id/237/200" width={1200} height={800} alt="photos" className="block"/>
       </div>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis quos
+      quas ex nam enim, velit aliquid eaque nesciunt suscipit blanditiis
+      incidunt rerum eum fuga error fugit repellendus dolor commodi minima.
+      Dicta rem eos dolores odit ipsum sunt doloremque, officiis laudantium.
+      Incidunt, optio quam. Explicabo quod nisi, et similique illo molestiae
+      facere velit dolore minus rerum impedit aliquam ad rem amet? Incidunt quod
+      nisi, iure corporis at optio dignissimos non reprehenderit expedita
+      distinctio dolorem suscipit cumque laudantium cum quae corrupti velit eum
+      asperiores blanditiis, facere illum. Ex maiores magni officia alias. Quas,
+      nostrum. Facere odit iure rem expedita! Corrupti accusamus laboriosam
+      dignissimos voluptatum porro iure. Veniam voluptate nobis provident vitae
+      iste enim, commodi numquam sapiente laudantium cum et, molestias
+      aspernatur fuga? Maxime accusamus, consequatur a, minima excepturi harum
+      cumque ipsam, similique hic repellat earum sunt! Ullam consequatur,
+      perspiciatis, recusandae natus aut ex cumque aliquam, suscipit cupiditate
+      quia veritatis voluptates impedit maiores. Quisquam nobis expedita
+      nesciunt eaque natus adipisci libero autem nemo, saepe, impedit similique
+      perspiciatis hic itaque mollitia perferendis repellat laborum aliquid
+      dolorum. Sunt alias maxime, perspiciatis expedita non dicta
+      exercitationem? Eius, corrupti non omnis reprehenderit pariatur
+      praesentium ut, facere quos vitae beatae optio architecto ad quia
+      assumenda, sunt aliquam ipsa amet voluptates repellat. Beatae qui
+      inventore earum voluptate pariatur nisi? Eos ullam delectus ipsa laborum
+      debitis similique illo, porro ea molestias voluptatem nam aliquid quia
+      magni? Alias eligendi quisquam molestiae iure ipsa veniam, exercitationem,
+      sint officia, dolorem obcaecati impedit quasi. Consequuntur suscipit, non
+      iste, tempora cum facere temporibus, id officiis saepe sed optio magni
+      commodi culpa ipsum fugit quod. Dolores minus doloremque hic porro
+      impedit. Nihil molestias dolor alias vel. Praesentium est, velit saepe
+      nemo, a odio corrupti provident nihil fugiat dolores sed accusantium
+      nesciunt repellat, dolorum ipsum! Ratione quidem esse quo nesciunt dolorem
+      asperiores, error saepe repellat accusantium obcaecati. Assumenda
+      asperiores veniam, pariatur temporibus unde dolorum culpa ut sint ea atque
+      saepe modi illum in molestiae dolore officiis ullam, distinctio est
+      doloremque eveniet aspernatur, perferendis soluta ad. Nisi, ratione! Porro
+      praesentium odit veritatis enim cumque voluptates placeat voluptatum
+      perferendis. Fuga delectus praesentium velit a officia odio eaque quo
+      harum exercitationem quibusdam maxime in sapiente iusto voluptate aperiam,
+      provident veritatis. Dolore dicta architecto error quos sed quia ex
+      voluptatum modi esse voluptatibus laudantium et minima perferendis, ad
+      corporis, tempore nesciunt, sequi neque magnam. Suscipit sequi error velit
+      dolorem, tempore officiis. Non quod explicabo iusto tempore vitae dolorem
+      suscipit laudantium magni impedit pariatur distinctio qui quas sed sit,
+      dolore velit veniam ipsa et? Vitae ad architecto, fugit quos voluptatem at
+      doloribus? Aut, repudiandae dolore illo aperiam nihil debitis quod quae
+      error molestias modi voluptatem eius dolorum sit ex facere recusandae
+      repellendus voluptates quasi, numquam excepturi corrupti qui? Voluptatum
+      necessitatibus qui a. Sed architecto sequi praesentium excepturi nam rerum
+      ullam quisquam labore placeat, fugit iste provident quia at error earum
+      officia adipisci enim repellendus non temporibus, incidunt voluptas.
+      Incidunt omnis pariatur quibusdam. Consequuntur provident fugit in, nam,
+      delectus asperiores qui, obcaecati vero quam architecto omnis consectetur.
+      Facilis ea possimus voluptatibus saepe dicta. Officiis adipisci iusto quia
+      deleniti placeat itaque, nisi iste veniam. Sed placeat non similique odio
+      iusto culpa ipsum laborum cum veritatis facere pariatur adipisci
+      exercitationem, necessitatibus dolores. Quos illo magnam porro in eveniet
+      culpa qui explicabo officiis, deleniti excepturi. Nostrum? Blanditiis
+      consectetur obcaecati expedita repudiandae a, optio exercitationem
+      voluptatibus odit? Amet ea numquam quaerat dignissimos reprehenderit
+      inventore iure excepturi illum ad? Error dicta iste rerum atque nemo dolor
+      magni veritatis! Unde excepturi odio placeat magni velit libero provident
+      ullam expedita cum suscipit eveniet at perferendis quas obcaecati in quos
+      temporibus, soluta debitis voluptas vitae illum nulla? Porro eum velit
+      illum.
+    </div>
+  );
+};
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default Page;
