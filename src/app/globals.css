@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  @apply backdrop-blur-sm;
+  @apply border-none;
+  @apply outline;
+  @apply outline-primary;
+  @apply outline-offset-4;
+}
+.btn-primary:hover {
+  @apply shadow-xl;
+  @apply shadow-secondary;
+  @apply text-secondary;
+  @apply bg-transparent;
+  @apply outline-secondary;
+}

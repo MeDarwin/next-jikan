@@ -20,7 +20,7 @@ const SidebarTrigger = ({
         fontWeight: "bold",
       }}
       onClick={() => setIsOpen(!isOpen)}
-      className="absolute outline outline-primary outline-offset-2 border-none outline-2 shadow-lg py-2 hover:shadow-secondary btn btn-primary top-4 -end-14 text-secondary text-3xl w-16 h-fit leading-none"
+      className="absolute outline outline-primary outline-offset-2 border-none outline-2 shadow-lg py-2 hover:shadow-secondary btn btn-primary top-4 -end-14 text-3xl w-16 h-fit leading-none"
       style={noto.style}
     >
       ネオン

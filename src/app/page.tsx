@@ -1,19 +1,49 @@
-import Brand from "@/components/brand";
+import SloganCard from "@/components/home/slogan-card";
+import { app } from "@/config";
+import { faDesktop } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 
-const Page = () => {
+const getAnimeRecommendation = async () => {
+  const response = await fetch(`${app.apiUrl}/random/anime`, {
+    headers: {
+      Accept: "application/json",
+    },
+    next: { tags: ["anime"] },
+  });
+  if(!response.ok){
+    throw new Error("Failed to fetch data.")
+  }
+  return response.json();
+};
+
+const Page = async () => {
+  const animeRecommendation = await getAnimeRecommendation()
+  console.log(app.apiUrl);
+  
   return (
     <div>
-      <div className="group relative flex transition-all delay-200 duration-300 outline hover:outline-secondary outline-primary outline-offset-8 shadow-primary shadow-md hover:shadow-2xl hover:shadow-secondary py-4 px-2 rounded-lg mb-16">
-        <span className="after:block group-hover:after:bg-secondary after:w-2 after:h-full after:absolute after:bottom-0 after:-skew-x-12 after:left-32 after:shadow-lg after:shadow-secondary after:bg-primary"></span>
-        <Brand />
-        {/* //TODO: On hover each sentence staggers */}
-        <h1 className="group-hover:text-secondary transition-colors delay-500 duration-100 ms-12 text-3xl italic font-semibold text-primary">
-          Watch anime like never before.
-        </h1>
-        {/* //TODO: Image below the quote */}
-        <Image src="https://picsum.photos/id/237/200" width={1200} height={800} alt="photos" className="block"/>
-      </div>
+      <article className="grid grid-cols-[1fr_auto] grid-rows-[auto_1fr] gap-y-16 gap-7 mb-8">
+        <SloganCard />
+        <div>
+          <Image
+            src="https://placehold.co/1920x1080.png"
+            width={1920}
+            height={1080}
+            alt="placehold"
+          />
+        </div>
+        <div>
+          <button className="relative group btn btn-primary px-10 shadow-2xl hover:h-full transition-all ease-out duration-700">
+            <span className="-translate-x-3 group-hover:translate-x-0 group-hover:-translate-y-20 group-hover:text-4xl transition-all ease-out">
+              Watch now
+            </span>
+            <span className="absolute translate-x-12 group-hover:translate-x-0 group-hover:translate-y-5 group-hover:scale-[8] transition-all ease-out">
+              <FontAwesomeIcon icon={faDesktop} />
+            </span>
+          </button>
+        </div>
+      </article>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis quos
       quas ex nam enim, velit aliquid eaque nesciunt suscipit blanditiis
       incidunt rerum eum fuga error fugit repellendus dolor commodi minima.
