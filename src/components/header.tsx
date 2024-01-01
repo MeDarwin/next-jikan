@@ -24,7 +24,7 @@ const Header = () => {
         onClick={() => setIsOpen(!isOpen)}
         // TODO: More advanced fade animation (neon blinking)
         // fade
-        className="transition-all ms-auto order-last text-secondary hover:cursor-pointer"
+        className="transition-all ms-auto order-last text-primary hover:cursor-pointer"
       />
       {isOpen && (
         <motion.ul

@@ -1,41 +1,49 @@
 "use client";
+import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 import Brand from "../brand";
-import ClientTypeAnimation from "../client-type-animation";
 
+const baseSlogan = "Watch anime,";
 const sequence = [
-  "Like never before.",
+  `${baseSlogan}\nLike never before.`,
   2000,
-  "Like how you want it.",
+  `${baseSlogan}\nLike how you want it.`,
   2000,
-  "Like how you like it.",
+  `${baseSlogan}\nLike how you deserve it.`,
   2000,
-  "Like how you deserve it.",
-  2000,
-  "The new way, Neo way.",
-  2000,
-  (el) => {
-    console.log(el);
+  `${baseSlogan}\nThe new way, Neo way.`,
+  (el: HTMLElement | null) => {
+    el!.classList.add("text-secondary");
+    el!.style.textShadow = "rgba(110, 231, 183, .8) 0 0 20px";
+  },
+  6000,
+  (el: HTMLElement | null) => {
+    el!.classList.remove("text-secondary");
+    el!.style.textShadow = "none";
   },
 ];
 
+//TODO: make everything glow when last slogan is displayed
 const SloganCard = () => {
   return (
-    <div className="group h-40 col-span-2 min-w-fit relative flex transition-all duration-300 outline hover:outline-secondary outline-primary outline-offset-8 shadow-primary shadow-lg hover:shadow-2xl hover:shadow-secondary py-4 px-2 rounded-lg">
+    <motion.div
+      animate={{ x: 0, opacity: 1 }}
+      initial={{ x: -200, opacity: 0 }}
+      
+      className="group whitespace-pre-line h-40 col-span-2 min-w-fit relative flex outline hover:outline-secondary outline-primary outline-offset-8 shadow-primary shadow-lg hover:shadow-2xl hover:shadow-secondary py-4 px-2 rounded-lg duration-700 transition-all ease-out"
+    >
       <span className="after:block group-hover:after:bg-secondary after:w-1 after:h-full after:absolute after:bottom-0 after:-skew-x-12 after:left-32 after:shadow-lg after:shadow-secondary after:bg-primary"></span>
       <Brand />
-      {/* //TODO: On hover each sentence staggers */}
       <h1 className="group-hover:text-secondary break-words transition-colors duration-100 ms-12 text-3xl italic font-semibold text-primary">
-        <span className="block break-normal not-italic">Watch anime,</span>
-        <ClientTypeAnimation
+        <TypeAnimation
           sequence={sequence}
           deletionSpeed={80}
-          className="text-5xl"
+          className="text-5xl transition-all"
           repeat={Infinity}
           speed={50}
         />
       </h1>
-      {/* //TODO: Image below the quote */}
-    </div>
+    </motion.div>
   );
 };
 

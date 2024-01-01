@@ -13,7 +13,7 @@ const Brand = () => {
       const enterGlowAnimation = async () => {
         await animate(scope.current, {
           textShadow: "rgba(110, 231, 183,.8) 0 0 20px",
-        });
+        },{ease: "backOut"});
       };
       enterGlowAnimation();
     } else {
@@ -27,7 +27,7 @@ const Brand = () => {
   return (
     <h1
       ref={scope}
-      className="w-fit transition-all text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
+      className="w-fit text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

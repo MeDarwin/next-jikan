@@ -21,12 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="neonime" className="bg-slate-950">
       <body
-        className={`${inter.className} min-h-svh grid grid-rows-[auto_1fr]`}
+        className={`${inter.className} overflow-x-hidden`}
       >
         <Sidebar />
         <Header />
-        <main className="container mx-auto mt-24 flex flex-col min-h-screen">
-          <div className="p-8 grow">{children}</div>
+        <main className="container mx-auto flex flex-col">
+          <div className="p-8 grow pt-32">{children}</div>
         </main>
       </body>
     </html>
