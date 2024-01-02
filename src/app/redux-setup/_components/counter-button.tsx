@@ -4,7 +4,7 @@ import {
   decrement,
   increment,
   incrementByAmount,
-} from "@/lib/redux/slices/counter-slicce";
+} from "@/lib/redux/slices/counter-slice";
 
 //!DELETE SOON
 const CounterButton = () => {
