@@ -2,17 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn {
+.btn:not(.btn-outline) {
   @apply backdrop-blur-sm;
   @apply border-none;
-  @apply outline;
-  @apply outline-primary;
-  @apply outline-offset-4;
 }
-.btn-primary:hover {
+.btn-outline {
+  @apply border-2;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-accent:hover {
   @apply shadow-xl;
-  @apply shadow-secondary;
-  @apply text-secondary;
   @apply bg-transparent;
+}
+
+.btn-primary:hover {
+  @apply text-primary;
+  @apply shadow-primary;
+  @apply outline-primary;
+}
+
+.btn-secondary:hover {
+  @apply text-secondary;
+  @apply shadow-secondary;
   @apply outline-secondary;
+}
+
+.btn-accent:hover {
+  @apply text-accent;
+  @apply shadow-accent;
+  @apply outline-accent;
 }

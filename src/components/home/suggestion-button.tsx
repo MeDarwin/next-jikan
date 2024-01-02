@@ -15,7 +15,7 @@ const SuggestionButton = () => {
         onClick={() => router.push("/")}
         initial={{ opacity: 0, x: -200 }}
         animate={{ opacity: 1, x: 0 }}
-        className="relative group btn btn-primary px-10 shadow-2xl hover:h-72 transition-all ease-out duration-700"
+        className="relative group btn btn-primary px-10 shadow-2xl hover:h-72 transition-all ease-out duration-700 outline outline-offset-4"
       >
         <span className="-translate-x-3 group-hover:translate-x-0 group-hover:-translate-y-20 group-hover:text-4xl duration-300 transition-all ease-out">
           Watch now
@@ -28,7 +28,7 @@ const SuggestionButton = () => {
         onClick={() => router.push("/nsfw")}
         initial={{ opacity: 0, x: "100%" }}
         animate={{ opacity: 1, x: 0 }}
-        className="relative group btn btn-primary px-10 shadow-2xl hover:h-72 transition-all ease-out duration-700"
+        className="relative group btn btn-primary px-10 shadow-2xl hover:h-72 transition-all ease-out duration-700 outline outline-offset-4"
       >
         <span className="-translate-x-3 group-hover:translate-x-0 group-hover:-translate-y-20 group-hover:text-4xl duration-300 transition-all ease-out">
           NSFW

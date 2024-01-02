@@ -1,3 +1,4 @@
+import CommonProvider from "@/components/common-provider";
 import Header from "@/components/header";
 import Sidebar from "@/components/sidebar";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -19,16 +20,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="neonime" className="bg-slate-950">
-      <body
-        className={`${inter.className} overflow-x-hidden`}
-      >
-        <Sidebar />
-        <Header />
-        <main className="container mx-auto flex flex-col">
-          <div className="p-8 grow pt-32">{children}</div>
-        </main>
-      </body>
-    </html>
+    <CommonProvider>
+      <html lang="en" data-theme="neonime" className="bg-slate-950">
+        <body className={`${inter.className} overflow-x-hidden`}>
+          <Sidebar />
+          <Header />
+          <main className="container mx-auto flex flex-col">
+            <div className="p-8 grow pt-32">{children}</div>
+          </main>
+        </body>
+      </html>
+    </CommonProvider>
   );
 }
