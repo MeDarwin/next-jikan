@@ -1,5 +1,5 @@
-import SloganCard from "@/components/home/slogan-card";
-import SuggestionButton from "@/components/home/suggestion-button";
+import SloganCard from "@/app/_components/slogan-card";
+import SuggestionButton from "@/app/_components/suggestion-button";
 
 //TODO: do client fetching (preferred) since it only fetch one specific data
 const Page = async () => {

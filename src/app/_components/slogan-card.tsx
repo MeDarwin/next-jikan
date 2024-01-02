@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import Brand from "../brand";
+import Brand from "../../components/brand";
 
 const baseSlogan = "Watch anime,";
 const sequence = [
