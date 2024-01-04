@@ -20,7 +20,7 @@ const SidebarTrigger = ({
         fontWeight: "bold",
       }}
       onClick={() => setIsOpen(!isOpen)}
-      className="absolute outline outline-primary outline-offset-2 border-none outline-2 shadow-lg py-2 hover:shadow-primary btn btn-primary top-4 -end-14 text-3xl w-16 h-fit leading-none"
+      className="absolute outline outline-primary outline-offset-2 outline-2 py-2 btn btn-primary top-4 -end-14 text-3xl w-16 h-fit leading-none"
       style={noto.style}
     >
       ネオン
@@ -32,7 +32,7 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`fixed z-50 p-4 shadow-primary ease-in-out duration-700 py-7 backdrop-blur-xl bg-slate-950 bg-opacity-25 transition-all w-64 border-r-2 border-purple-700 min-h-svh ${
+      className={`fixed z-50 p-4 shadow-primary ease-in-out duration-700 py-7 backdrop-blur-xl bg-black bg-opacity-25 transition-all w-64 border-r-2 border-purple-700 min-h-svh ${
         isOpen ? "start-0" : "-left-64"
       }
       ${isOpen ? "shadow-2xl" : ""}`}

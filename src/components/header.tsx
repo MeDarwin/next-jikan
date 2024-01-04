@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header
-      className={`flex transition-all ease-out z-40 duration-1000 ps-20 pe-6 py-4 pb-2 h-24 min-h-fit fixed backdrop-blur-sm outline outline-primary outline-offset-4 flex-row items-center
+      className={`flex transition-all ease-out z-40 duration-1000 ps-20 pe-6 py-4 pb-2 h-24 min-h-fit bg-black bg-opacity-25 fixed backdrop-blur-sm outline outline-primary outline-offset-4 flex-row items-center
       ${isOpen ? "w-full" : "w-[26rem]"}
       ${isOpen ? "rounded-none" : "rounded-br-3xl"}`}
     >

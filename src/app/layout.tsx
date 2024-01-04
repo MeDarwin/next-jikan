@@ -1,4 +1,5 @@
 import CommonProvider from "@/components/common-provider";
+import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Sidebar from "@/components/sidebar";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -25,9 +26,10 @@ export default function RootLayout({
         <body className={`${inter.className} overflow-x-hidden`}>
           <Sidebar />
           <Header />
-          <main className="container mx-auto flex flex-col">
+          <main className="container mx-auto flex flex-col min-h-svh">
             <div className="p-8 grow pt-32">{children}</div>
           </main>
+          <Footer />
         </body>
       </html>
     </CommonProvider>
