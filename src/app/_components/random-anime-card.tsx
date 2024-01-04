@@ -7,7 +7,17 @@ import Link from "next/link";
 const RandomAnimeCard = () => {
   const { isLoading, data, isError } = useGetRandomAnimeQuery();
   if (isError) return <div>Unable to show random anime</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="flex flex-row items-center outline outline-primary outline-offset-4 rounded-lg px-2 py-3">
+        <div className="skeleton rounded-lg min-w-40 h-64"></div>
+        <div className="w-full px-4 self-start grid grid-rows-[auto_1fr]">
+          <div className="skeleton w-full rounded-sm h-8 mb-8"></div>
+          <div className="skeleton w-3/4 rounded-sm h-32 mb-2"></div>
+          <div className="skeleton w-3/4 rounded-sm h-14"></div>
+        </div>
+      </div>
+    );
 
   return (
     <Link href={`/anime/${data?.mal_id}`} className="group">
@@ -22,7 +32,7 @@ const RandomAnimeCard = () => {
           />
         </div>
         {/* //TODO : Add details page on every anime */}
-        <div className="prose prose-sm max-w-full">
+        <article className="prose prose-sm max-w-full">
           <h1>{data?.title_japanese}</h1>
           <h2>{data?.title}</h2>
           <p>{data?.synopsis}</p>
@@ -35,19 +45,16 @@ const RandomAnimeCard = () => {
             </span>
           </div>
           <div className="flex not-prose flex-row gap-x-2 flex-wrap">
-            {data?.themes.map(({ mal_id, name, url }) => (
-              <a
-                href={url}
-                target="_blank"
-                rel="noreferrer"
+            {data?.themes.map(({ mal_id, name }) => (
+              <span
                 key={mal_id}
                 className="badge badge-sm badge-accent text-xs font-bold"
               >
                 {name}
-              </a>
+              </span>
             ))}
           </div>
-        </div>
+        </article>
       </section>
     </Link>
   );

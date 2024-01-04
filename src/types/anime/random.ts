@@ -1,8 +1,5 @@
-interface ImageUrl {
-  image_url: string;
-  small_image_url: string;
-  large_image_url: string;
-}
+import { ImageUrl } from "../imageUrl";
+
 interface CommonMyAnimeList {
   mal_id: number;
   type: string;

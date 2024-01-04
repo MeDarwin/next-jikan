@@ -5,15 +5,17 @@ import { useEffect, useState } from "react";
 
 // TODO: Add hover effect glow animation
 const Brand = () => {
-  const [isHovered, setHovered] = useState(false);
-  const [scope, animate] = useAnimate();
+  const [isHovered, setHovered] = useState<boolean>(false);
+  const [scope, animate] = useAnimate<HTMLHeadingElement>();
 
   useEffect(() => {
     if (isHovered) {
       const enterGlowAnimation = async () => {
-        await animate(scope.current, {
-          textShadow: "rgba(110, 231, 183,.8) 0 0 20px",
-        },{ease: "backOut"});
+        await animate(
+          scope.current,
+          { textShadow: "rgba(110, 231, 183, .8) 0 0 20px" },
+          { ease: "backOut" }
+        );
       };
       enterGlowAnimation();
     } else {
