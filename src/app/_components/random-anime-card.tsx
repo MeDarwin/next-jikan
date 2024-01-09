@@ -1,4 +1,5 @@
 "use client";
+import { placeholderImg } from "@/lib/placeholderImg";
 import { useGetRandomAnimeQuery } from "@/lib/redux/services/animeApi";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,11 +25,11 @@ const RandomAnimeCard = () => {
       <section className="flex flex-row transition-all ease-out duration-500 group-hover:shadow-xl group-hover:shadow-primary px-2 py-3 gap-x-8 items-center outline outline-primary outline-offset-4 rounded-lg">
         <div className="relative max-h-64 min-h-64 max-w-40 min-w-40">
           <Image
+            className="object-contain object-center"
+            placeholder={placeholderImg}
             src={data!.images.webp.image_url}
             alt={data!.title}
             fill
-            objectFit="contain"
-            objectPosition="center"
           />
         </div>
         {/* //TODO : Add details page on every anime */}

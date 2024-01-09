@@ -2,7 +2,6 @@ import SuggestionButton from "@/app/_components/suggestion-button";
 import RandomAnimeCard from "./_components/random-anime-card";
 import ReccomendationAnimeCard from "./_components/reccomendation-anime-card";
 
-//TODO: do client fetching (preferred) since it only fetch one specific data
 const Page = async () => {
   return (
     <div className="flex flex-col gap-y-8">

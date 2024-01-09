@@ -1,11 +1,5 @@
+import { CommonMyAnimeList } from "../common-mal";
 import { ImageUrl } from "../imageUrl";
-
-interface CommonMyAnimeList {
-  mal_id: number;
-  type: string;
-  name: string;
-  url: string;
-}
 
 export interface RandomAnime {
   mal_id: number;

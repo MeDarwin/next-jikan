@@ -26,6 +26,7 @@ export const animeApi = createApi({
     }),
     getRecommendedAnime: builder.query<ReccomendedAnimeResponse, void>({
       query: () => "recommendations/anime?sfw",
+      keepUnusedDataFor: 3600 * 12, // half a day
     }),
   }),
 });
