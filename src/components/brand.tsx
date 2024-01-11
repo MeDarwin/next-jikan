@@ -20,7 +20,7 @@ const Brand = () => {
       enterGlowAnimation();
     } else {
       const exitGlowAnimation = async () => {
-        await animate(scope.current, { textShadow: "none" });
+        await animate(scope.current, { textShadow: "rgba(110, 231, 183, 0) 0 0 20px" }, { ease: "backIn" });
       };
       exitGlowAnimation();
     }

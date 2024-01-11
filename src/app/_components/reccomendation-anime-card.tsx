@@ -48,18 +48,19 @@ const EntryCard = ({ entry }: { entry: RecomendationAnime["entry"][0] }) => {
       className="relative break-inside-avoid-column grid grid-rows-[auto_1fr] place-items-center w-full rounded-sm px-2 shadow-lg shadow-primary outline outline-primary outline-offset-4 mb-8 h-fit py-3"
       key={entry.mal_id}
     >
-
       <div className="relative h-56 w-40">
-        <Image
-          className="object-contain object-center"
-          placeholder={placeholderImg}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          ref={scope}
-          src={entry.images.webp.image_url}
-          alt={entry.title}
-          fill
-        />
+        <Link href={`/anime/${entry.mal_id}`}>
+          <Image
+            className="object-contain object-center"
+            placeholder={placeholderImg}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            ref={scope}
+            src={entry.images.webp.image_url}
+            alt={entry.title}
+            fill
+          />
+        </Link>
       </div>
       <Link href={`/anime/${entry.mal_id}`}>
         <h5 className="text-white text-start w-fit transition-all text-base hover:font-[600] mt-2">
