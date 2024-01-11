@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 .btn:not(.btn-outline) {
+  @apply outline;  
+  @apply outline-offset-4;
   @apply backdrop-blur-xl;
   @apply border-none;
 }

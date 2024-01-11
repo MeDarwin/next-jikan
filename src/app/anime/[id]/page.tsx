@@ -2,27 +2,30 @@ import Badge from "@/components/badge";
 import { app } from "@/config";
 import { placeholderImg } from "@/lib/placeholderImg";
 import { AnimeFullById } from "@/types";
-import { faStar } from "@fortawesome/free-solid-svg-icons/faStar";
+import { faDotCircle, faSadTear, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
-const getAnimeById = async (id: string) => {
+const getAnimeById = async (id: string): Promise<AnimeFullById> => {
   const res = await fetch(`${app.apiUrl}/anime/${id}/full`);
-  const data: AnimeFullById = await res.json();
-  return data.data;
+  const data = await res.json();
+  if (res.status === 404) return notFound();
+  return data;
 };
 
 //TODO: add more stuff from API
 const Page = async ({ params }: { params: { id: string } }) => {
-  const data = await getAnimeById(params.id);
+  const { data } = await getAnimeById(params.id);
+
   return (
     <article className="flex flex-col gap-8">
       <section className="flex flex-row outline outline-primary outline-offset-4 rounded-lg px-2 py-3 justify-between">
         <div>
-          <h3 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent w-fit">
+          <span className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent w-fit">
             #{data.rank ?? "Unranked"}
-          </h3>
+          </span>
           <h1 className="text-3xl font-semibold">{data.title}</h1>
           <h2 className="text-xl">{data.title_japanese}</h2>
         </div>
@@ -58,26 +61,27 @@ const Page = async ({ params }: { params: { id: string } }) => {
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
             ></iframe>
           ) : (
-            <span className="h-full flex justify-center items-center text-xl font-bold">
-              No trailer available
+            <span className="h-full flex justify-center items-center text-xl font-bold bg-gradient-to-br from-primary to-accent">
+              <FontAwesomeIcon icon={faSadTear} className="mr-2" size="xl" /> No
+              trailer available
             </span>
           )}
         </div>
       </section>
       <section className="flex flex-col outline outline-primary outline-offset-4 rounded-lg px-2 py-3 gap-y-4">
-        <h3 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent w-fit leading-tight">
+        <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent w-fit leading-tight">
           Synopsis
-        </h3>
+        </h1>
         <p className="w-full text-sm">{data.synopsis}</p>
       </section>
       <section>
         <span className="divider divider-start divider-accent">
-          <h6 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent w-fit">
+          <h2 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent w-fit">
             Where to watch
-          </h6>
+          </h2>
         </span>
         {data.streaming.map((streaming) => (
-          <div key={streaming.name} className="inline mr-4">
+          <li key={streaming.name} className="inline mr-4">
             <a
               href={streaming.url}
               target="_blank"
@@ -86,14 +90,14 @@ const Page = async ({ params }: { params: { id: string } }) => {
             >
               {streaming.name}
             </a>
-          </div>
+          </li>
         ))}
       </section>
       <section>
         <span className="divider divider-start divider-accent">
-          <h6 className="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent w-fit">
+          <h3 className="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent w-fit">
             External links
-          </h6>
+          </h3>
         </span>
         {data.external.map((external) => (
           <div key={external.name} className="inline mr-4">
@@ -110,24 +114,25 @@ const Page = async ({ params }: { params: { id: string } }) => {
       </section>
       <section>
         <span className="divider divider-start divider-accent">
-          <h5 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent w-fit">
+          <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent w-fit">
             Other
-          </h5>
+          </h4>
         </span>
         {data.relations.map(({ relation, entry }) => (
-          <>
-            <p>{relation}</p>
-            {entry.map((entry) => (
-              <div key={entry.mal_id} className="inline mx-4">
+          <div key={relation}>
+            <h6><FontAwesomeIcon icon={faDotCircle} className="mr-2 scale-75" size="sm"/>{relation}</h6>
+            <div className="flex flex-row flex-wrap gap-x-4 mx-6">
+              {entry.map((entry) => (
                 <Link
+                  key={entry.mal_id}
                   href={`/anime/${entry.mal_id}`}
                   className="text-sm font-semibold hover:font-[800] hover:text-accent transition-all hover:tracking-wider"
                 >
                   {entry.name}
                 </Link>
-              </div>
-            ))}
-          </>
+              ))}
+            </div>
+          </div>
         ))}
       </section>
     </article>
