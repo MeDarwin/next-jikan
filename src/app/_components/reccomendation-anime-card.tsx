@@ -1,5 +1,4 @@
 "use client";
-import { placeholderImg } from "@/lib/placeholderImg";
 import { useGetRecommendedAnimeQuery } from "@/lib/redux/services/animeApi";
 import { RecomendationAnime } from "@/types";
 import { useAnimate } from "framer-motion";
@@ -45,28 +44,26 @@ const EntryCard = ({ entry }: { entry: RecomendationAnime["entry"][0] }) => {
 
   return (
     <article
-      className="relative break-inside-avoid-column grid grid-rows-[auto_1fr] place-items-center w-full rounded-sm px-2 shadow-lg shadow-primary outline outline-primary outline-offset-4 mb-8 h-fit py-3"
+      className="relative break-inside-avoid-column grid grid-rows-[auto_1fr] place-items-center w-full rounded shadow-lg border-2 border-primary shadow-primary mb-8 h-fit"
       key={entry.mal_id}
     >
-      <div className="relative h-56 w-40">
+      {/* //TODO: Force open tooltip or look for alternative in samll device */}
+      <div className="relative min-h-[160px] w-full tooltip tooltip-bottom" data-tip={entry.title}>
         <Link href={`/anime/${entry.mal_id}`}>
+          {/* //TODO: Placeholder fix if possible. Not working since widht and height is 0 */}
           <Image
-            className="object-contain object-center"
-            placeholder={placeholderImg}
+            className="object-contain object-center w-full h-full"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
+            width={0}
+            height={0}
+            sizes="100%"
             ref={scope}
             src={entry.images.webp.image_url}
             alt={entry.title}
-            fill
           />
         </Link>
       </div>
-      <Link href={`/anime/${entry.mal_id}`}>
-        <h5 className="text-white text-start w-fit transition-all text-base hover:font-[600] mt-2">
-          {entry.title}
-        </h5>
-      </Link>
     </article>
   );
 };
@@ -91,7 +88,7 @@ const ReccomendationAnimeCard = () => {
     );
 
   return (
-    <div className="columns-[160px] gap-6">
+    <div className="columns-[160px] gap-10">
       {data?.data.map((anime) => renderEntry(anime))}
     </div>
   );

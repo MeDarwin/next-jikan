@@ -23,13 +23,15 @@ const RandomAnimeCard = () => {
   return (
     <Link href={`/anime/${data?.mal_id}`} className="group">
       <section className="flex flex-row transition-all ease-out duration-500 group-hover:shadow-xl group-hover:shadow-primary px-2 py-3 gap-x-8 items-center outline outline-primary outline-offset-4 rounded-lg">
-        <div className="relative max-h-64 min-h-64 max-w-40 min-w-40">
+        <div className="relative min-w-40">
           <Image
-            className="object-contain object-center"
+            className="object-contain object-center w-full h-full"
             placeholder={placeholderImg}
             src={data!.images.webp.image_url}
             alt={data!.title}
-            fill
+            width={0}
+            height={0}
+            sizes="100%"
           />
         </div>
         {/* //TODO : Add details page on every anime */}
